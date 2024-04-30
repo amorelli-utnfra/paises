@@ -1,0 +1,31 @@
+<table>
+    <thead>
+        <tr>
+            <th>
+                Bandera
+            </th>
+            <th>
+                Nombre
+            </th>
+            <th>
+                Acción
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <ng-container *ngFor="let pais of paises; let i = index">
+            <tr [ngClass]="{'active': i === selectedPaisId}">
+                <td>
+                    <img [style.width.px]="75" flag [src]="pais.flags.png">
+                </td>
+                <td [ngStyle]="{color: getColor(i)}">
+                    {{pais.name.common}}
+                </td>
+                <td>
+                    <button (click)="show(pais, i)">Ver</button>
+                </td>
+            </tr>
+        </ng-container>
+
+    </tbody>
+</table>
